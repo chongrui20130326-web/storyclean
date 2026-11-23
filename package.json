@@ -1,0 +1,17 @@
+{
+  "name": "novel-cleaning-workbench",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node analyzer/server.mjs",
+    "test": "node --test test/project.test.mjs test/stages.test.mjs test/server.test.mjs test/analyzer-clean.test.mjs test/analyzer-analysis.test.mjs test/analyzer-scene-roles.test.mjs test/analyzer-role-hybrid.test.mjs test/analyzer-mention-mappings.test.mjs test/analyzer-server.test.mjs"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.5.0",
+    "@langchain/openai": "^1.8.5"
+  }
+}

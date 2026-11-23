@@ -1,0 +1,1052 @@
+{
+  "format": "novel-cleaning-project",
+  "version": 2,
+  "source": {
+    "file": "下载副本.txt",
+    "encoding": "UTF-8",
+    "bom": false,
+    "sha256": "5b3923fc89378d8d811e9f410346792ef5b092c6e78ce843c3218460b6385bae",
+    "base64": "44CK5pif5rW357qq5LqL44CLDQrluo/nq6ANCuaIkeWcqOaXp+WfjuOAgg0KDQoxLuWIneiIqg0KDQrmnpfoiJ/op4HliLDmsojmo6DvvIzku5YmI3gyMDvmnJ3lpbnotbDmnaXjgIINCg0K5pyA5paw572R5Z2AaHR0cHM6Ly9leGFtcGxlLmNvbS8NCg0KMi7lvZLpgJQNCuKAnOWlueadpeS6hu+8geKAneS7luivtOOAgg0K",
+    "text": "《星海纪事》\r\n序章\r\n我在旧城。\r\n\r\n1.初航\r\n\r\n林舟见到沈棠，他&#x20;朝她走来。\r\n\r\n最新网址https://example.com/\r\n\r\n2.归途\r\n“她来了！”他说。\r\n"
+  },
+  "clean": {
+    "ok": true,
+    "name": "下载副本.txt",
+    "bookName": "星海纪事",
+    "chapterCount": 2,
+    "chapterWarnings": [],
+    "chapters": [
+      {
+        "index": 4,
+        "line": "1.初航",
+        "indented": false,
+        "before": "我在旧城。",
+        "after": "林舟见到沈棠，他 朝她走来。",
+        "number": 1,
+        "kind": "chapter",
+        "source": "model",
+        "title": "初航",
+        "volumeLabel": "",
+        "heading": "《星海纪事》（第1章） 初航",
+        "raw": "1.初航"
+      },
+      {
+        "index": 10,
+        "line": "2.归途",
+        "indented": false,
+        "before": "最新网址https://example.com/",
+        "after": "“她来了！”他说。",
+        "number": 2,
+        "kind": "chapter",
+        "source": "model",
+        "title": "归途",
+        "volumeLabel": "",
+        "heading": "《星海纪事》（第2章） 归途",
+        "raw": "2.归途"
+      }
+    ],
+    "sections": [
+      {
+        "index": 1,
+        "line": "序章",
+        "indented": false,
+        "before": "《星海纪事》",
+        "after": "我在旧城。",
+        "number": null,
+        "kind": "preface",
+        "source": "model",
+        "title": "序章",
+        "heading": "序章",
+        "raw": "序章"
+      },
+      {
+        "index": 4,
+        "line": "1.初航",
+        "indented": false,
+        "before": "我在旧城。",
+        "after": "林舟见到沈棠，他 朝她走来。",
+        "number": 1,
+        "kind": "chapter",
+        "source": "model",
+        "title": "初航",
+        "volumeLabel": "",
+        "heading": "《星海纪事》（第1章） 初航",
+        "raw": "1.初航"
+      },
+      {
+        "index": 10,
+        "line": "2.归途",
+        "indented": false,
+        "before": "最新网址https://example.com/",
+        "after": "“她来了！”他说。",
+        "number": 2,
+        "kind": "chapter",
+        "source": "model",
+        "title": "归途",
+        "volumeLabel": "",
+        "heading": "《星海纪事》（第2章） 归途",
+        "raw": "2.归途"
+      }
+    ],
+    "chapterValidation": {
+      "candidates": 5,
+      "firstPassCount": 1,
+      "coverageAdded": 1,
+      "rejected": [],
+      "modelChapters": 2,
+      "supplementarySections": 1
+    },
+    "cleaningAudit": {
+      "removedParagraphs": [
+        {
+          "line": 9,
+          "text": "最新网址https://example.com/",
+          "reason": "广告 / 作者留言 / 网站提示"
+        }
+      ],
+      "inlineRemovals": []
+    },
+    "structuredText": "书名《星海纪事》\n\n共 2 章\n\n清洗后目录：\n序章\n《星海纪事》（第1章） 初航\n《星海纪事》（第2章） 归途\n\n清洗正文：\n\n     《星海纪事》\n\n序章\n     我在旧城。\n\n《星海纪事》（第1章） 初航\n     林舟见到沈棠，他 朝她走来。\n\n《星海纪事》（第2章） 归途\n     “她来了！”他说。\n",
+    "cleanDoc": {
+      "书名": "星海纪事",
+      "目录": [
+        "序章",
+        "《星海纪事》（第1章） 初航",
+        "《星海纪事》（第2章） 归途"
+      ],
+      "正文": "     《星海纪事》\n\n序章\n     我在旧城。\n\n《星海纪事》（第1章） 初航\n     林舟见到沈棠，他 朝她走来。\n\n《星海纪事》（第2章） 归途\n     “她来了！”他说。\n"
+    },
+    "summary": {
+      "name": "下载副本.txt",
+      "bookName": "星海纪事",
+      "title": "星海纪事",
+      "createdAt": "2026-11-23T01:50:27.365Z",
+      "durationMs": 11,
+      "input": {
+        "bytes": 226,
+        "encoding": "UTF-8",
+        "encodingLabel": "UTF-8",
+        "bom": false,
+        "confidence": 0.99,
+        "newline": "LF",
+        "chars": 85,
+        "paragraphs": 5,
+        "chapters": 2,
+        "lines": 12,
+        "bookName": "星海纪事"
+      },
+      "output": {
+        "encoding": "UTF-8",
+        "bom": false,
+        "bytes": 212,
+        "chars": 61,
+        "paragraphs": 4,
+        "chapters": 2,
+        "deletedBlocks": 1,
+        "mergedSentences": 0,
+        "blankRemoved": 2
+      },
+      "stats": {
+        "charsBefore": 85,
+        "charsAfter": 61,
+        "removedChars": 24,
+        "paragraphsIn": 5,
+        "paragraphsOut": 4,
+        "chapters": 2,
+        "deletedBlocks": 1,
+        "mergedSentences": 0,
+        "aiApplied": 0,
+        "ruleApplied": 7,
+        "linesOut": 10,
+        "bytesOut": 212
+      },
+      "checks": [
+        {
+          "type": "truncation",
+          "index": 1,
+          "label": "语句截断",
+          "engine": "规则 + AI",
+          "found": 0,
+          "reviewed": 0,
+          "status": "ok",
+          "detail": "0 处候选 · AI 复核 0 · 确认 0"
+        },
+        {
+          "type": "chapter",
+          "index": 2,
+          "label": "章节连续",
+          "engine": "规则",
+          "found": 0,
+          "reviewed": 0,
+          "warnCount": 0,
+          "formatCount": 0,
+          "status": "ok",
+          "detail": "2 章 · 连续性 100% · 格式已一致 · 编号连续"
+        },
+        {
+          "type": "irrelevant",
+          "index": 3,
+          "label": "无关内容",
+          "engine": "规则 + AI",
+          "found": 1,
+          "reviewed": 5,
+          "status": "review",
+          "detail": "1 段整段删除 · 0 处行内网址"
+        },
+        {
+          "type": "blank",
+          "index": 4,
+          "label": "多余空行",
+          "engine": "规则",
+          "found": 2,
+          "reviewed": 2,
+          "status": "fixed",
+          "detail": "2 组空行 · 删除 2 行"
+        },
+        {
+          "type": "indent",
+          "index": 5,
+          "label": "段落缩进",
+          "engine": "规则 · 5 空格",
+          "found": 5,
+          "reviewed": 5,
+          "status": "fixed",
+          "detail": "5 段缩进已统一为 5 个半角空格"
+        },
+        {
+          "type": "encoding",
+          "index": 6,
+          "label": "UTF-8 编码",
+          "engine": "规则",
+          "found": 0,
+          "reviewed": 0,
+          "status": "ok",
+          "detail": "UTF-8（无 BOM）"
+        },
+        {
+          "type": "invisible",
+          "index": 7,
+          "label": "不可见字符",
+          "engine": "规则",
+          "found": 0,
+          "reviewed": 0,
+          "status": "ok",
+          "detail": "0 种 / 0 个不可见字符已清理"
+        }
+      ],
+      "chapter": {
+        "continuity": 100,
+        "found": 2,
+        "expected": 2,
+        "gaps": [],
+        "formatCount": 0,
+        "items": [
+          {
+            "blockId": "B0002",
+            "lineNo": 2,
+            "number": null,
+            "unit": "章",
+            "title": "序章",
+            "text": "序章",
+            "special": true,
+            "volume": false
+          },
+          {
+            "blockId": "B0005",
+            "lineNo": 5,
+            "number": 1,
+            "unit": "章",
+            "title": "《星海纪事》（第1章） 初航",
+            "text": "《星海纪事》（第1章） 初航",
+            "special": false,
+            "volume": false
+          },
+          {
+            "blockId": "B0011",
+            "lineNo": 11,
+            "number": 2,
+            "unit": "章",
+            "title": "《星海纪事》（第2章） 归途",
+            "text": "《星海纪事》（第2章） 归途",
+            "special": false,
+            "volume": false
+          }
+        ]
+      },
+      "ai": {
+        "enabled": false,
+        "model": "",
+        "health": null,
+        "calls": 0,
+        "failed": 0,
+        "truncatedReviewed": 0,
+        "irrelevantReviewed": 0,
+        "truncatedAccepted": 0,
+        "irrelevantAccepted": 1,
+        "skipped": 5,
+        "degraded": true,
+        "error": "本次关闭了 AI 复核，使用规则兜底",
+        "durationMs": 0,
+        "promptTokens": 0,
+        "evalTokens": 0,
+        "aiApplied": 0
+      },
+      "issuesTotal": 12
+    },
+    "issues": [
+      {
+        "id": "D0001",
+        "type": "irrelevant",
+        "layer": "ai",
+        "severity": "warn",
+        "fixable": true,
+        "mode": "paragraph",
+        "title": "待确认：章节首尾的孤立短句",
+        "detail": "第 1 行 · 《星海纪事》",
+        "blockIds": [
+          "B0001"
+        ],
+        "before": "《星海纪事》",
+        "after": "（保留）",
+        "confidence": 0.5,
+        "toggle": false,
+        "applied": false,
+        "accepted": false,
+        "reason": "章节首尾的孤立短句",
+        "kind": "",
+        "disabled": false
+      },
+      {
+        "id": "D0002",
+        "type": "irrelevant",
+        "layer": "ai",
+        "severity": "warn",
+        "fixable": true,
+        "mode": "paragraph",
+        "title": "待确认：章节首尾的孤立短句",
+        "detail": "第 3 行 · 我在旧城。",
+        "blockIds": [
+          "B0003"
+        ],
+        "before": "我在旧城。",
+        "after": "（保留）",
+        "confidence": 0.5,
+        "toggle": false,
+        "applied": false,
+        "accepted": false,
+        "reason": "章节首尾的孤立短句",
+        "kind": "",
+        "disabled": false
+      },
+      {
+        "id": "D0003",
+        "type": "irrelevant",
+        "layer": "ai",
+        "severity": "warn",
+        "fixable": true,
+        "mode": "paragraph",
+        "title": "待确认：章节首尾的孤立短句",
+        "detail": "第 7 行 · 林舟见到沈棠，他 朝她走来。",
+        "blockIds": [
+          "B0007"
+        ],
+        "before": "林舟见到沈棠，他 朝她走来。",
+        "after": "（保留）",
+        "confidence": 0.5,
+        "toggle": false,
+        "applied": false,
+        "accepted": false,
+        "reason": "章节首尾的孤立短句",
+        "kind": "",
+        "disabled": false
+      },
+      {
+        "id": "D0004",
+        "type": "irrelevant",
+        "layer": "rule",
+        "severity": "fix",
+        "fixable": true,
+        "mode": "paragraph",
+        "title": "无关内容：广告 / 作者留言 / 网站提示",
+        "detail": "第 9 行 · 最新网址https://example.com/",
+        "blockIds": [
+          "B0009"
+        ],
+        "before": "最新网址https://example.com/",
+        "after": "（整段删除）",
+        "confidence": 0.9,
+        "toggle": true,
+        "applied": true,
+        "accepted": true,
+        "reason": "广告 / 作者留言 / 网站提示",
+        "kind": "",
+        "disabled": false
+      },
+      {
+        "id": "D0005",
+        "type": "irrelevant",
+        "layer": "ai",
+        "severity": "warn",
+        "fixable": true,
+        "mode": "paragraph",
+        "title": "待确认：章节首尾的孤立短句",
+        "detail": "第 12 行 · “她来了！”他说。",
+        "blockIds": [
+          "B0012"
+        ],
+        "before": "“她来了！”他说。",
+        "after": "（保留）",
+        "confidence": 0.5,
+        "toggle": false,
+        "applied": false,
+        "accepted": false,
+        "reason": "章节首尾的孤立短句",
+        "kind": "",
+        "disabled": false
+      },
+      {
+        "id": "E0001",
+        "type": "blank",
+        "layer": "rule",
+        "severity": "fix",
+        "fixable": true,
+        "title": "段落之间夹了 1 个空行",
+        "detail": "小说按行分段，段与段之间不需要空行。",
+        "blockIds": [
+          "G0006"
+        ],
+        "removed": 1,
+        "allowed": 0,
+        "applied": true,
+        "accepted": true,
+        "disabled": false
+      },
+      {
+        "id": "E0002",
+        "type": "blank",
+        "layer": "rule",
+        "severity": "fix",
+        "fixable": true,
+        "title": "段落之间夹了 1 个空行",
+        "detail": "小说按行分段，段与段之间不需要空行。",
+        "blockIds": [
+          "G0008"
+        ],
+        "removed": 1,
+        "allowed": 0,
+        "applied": true,
+        "accepted": true,
+        "disabled": false
+      },
+      {
+        "id": "N0001",
+        "type": "indent",
+        "layer": "rule",
+        "severity": "fix",
+        "fixable": true,
+        "title": "段落缩进 0 个空格",
+        "detail": "应为 5 个半角空格，第 1 行是 0 个。",
+        "blockIds": [
+          "B0001"
+        ],
+        "before": "《星海纪事》",
+        "after": "     《星海纪事》",
+        "applied": true,
+        "accepted": true,
+        "lineNo": 1,
+        "disabled": false
+      },
+      {
+        "id": "N0002",
+        "type": "indent",
+        "layer": "rule",
+        "severity": "fix",
+        "fixable": true,
+        "title": "段落缩进 0 个空格",
+        "detail": "应为 5 个半角空格，第 3 行是 0 个。",
+        "blockIds": [
+          "B0003"
+        ],
+        "before": "我在旧城。",
+        "after": "     我在旧城。",
+        "applied": true,
+        "accepted": true,
+        "lineNo": 3,
+        "disabled": false
+      },
+      {
+        "id": "N0003",
+        "type": "indent",
+        "layer": "rule",
+        "severity": "fix",
+        "fixable": true,
+        "title": "段落缩进 0 个空格",
+        "detail": "应为 5 个半角空格，第 7 行是 0 个。",
+        "blockIds": [
+          "B0007"
+        ],
+        "before": "林舟见到沈棠，他 朝她走来。",
+        "after": "     林舟见到沈棠，他 朝她走来。",
+        "applied": true,
+        "accepted": true,
+        "lineNo": 7,
+        "disabled": false
+      },
+      {
+        "id": "N0004",
+        "type": "indent",
+        "layer": "rule",
+        "severity": "fix",
+        "fixable": true,
+        "title": "段落缩进 0 个空格",
+        "detail": "应为 5 个半角空格，第 9 行是 0 个。",
+        "blockIds": [
+          "B0009"
+        ],
+        "before": "最新网址https://example.com/",
+        "after": "     最新网址https://example.com/",
+        "applied": true,
+        "accepted": true,
+        "lineNo": 9,
+        "disabled": false
+      },
+      {
+        "id": "N0005",
+        "type": "indent",
+        "layer": "rule",
+        "severity": "fix",
+        "fixable": true,
+        "title": "段落缩进 0 个空格",
+        "detail": "应为 5 个半角空格，第 12 行是 0 个。",
+        "blockIds": [
+          "B0012"
+        ],
+        "before": "“她来了！”他说。",
+        "after": "     “她来了！”他说。",
+        "applied": true,
+        "accepted": true,
+        "lineNo": 12,
+        "disabled": false
+      }
+    ],
+    "issueCount": 12,
+    "text": "     《星海纪事》\n\n序章\n     我在旧城。\n\n《星海纪事》（第1章） 初航\n     林舟见到沈棠，他 朝她走来。\n\n《星海纪事》（第2章） 归途\n     “她来了！”他说。\n"
+  },
+  "numbered": {
+    "schema": "novel-numbered/v2",
+    "app": {
+      "name": "corpus-kit numberer"
+    },
+    "generatedAt": "2026-11-23T01:50:27.371Z",
+    "source": {
+      "file": "星海纪事.txt",
+      "chars": 94
+    },
+    "numbering": {
+      "chapter": "C",
+      "paragraph": "P",
+      "sentence": "S",
+      "order": "bottom-up"
+    },
+    "userExamples": [],
+    "chapterRule": "confirmed-clean-directory",
+    "totals": {
+      "chapters": 2,
+      "paragraphs": 3,
+      "sentences": 8
+    },
+    "coverage": {
+      "sourceChars": 61,
+      "sentenceChars": 61,
+      "ratio": 1
+    },
+    "duplicateSentences": 0,
+    "warnings": [
+      "过短章节 1 个（<3 句）"
+    ],
+    "chapters": [
+      {
+        "id": "C1",
+        "n": 1,
+        "title": "《星海纪事》（第1章） 初航",
+        "from": "S4",
+        "to": "S5",
+        "sentences": 2,
+        "paragraphs": [
+          "P2"
+        ]
+      },
+      {
+        "id": "C2",
+        "n": 2,
+        "title": "《星海纪事》（第2章） 归途",
+        "from": "S6",
+        "to": "S8",
+        "sentences": 3,
+        "paragraphs": [
+          "P3"
+        ]
+      }
+    ],
+    "paragraphs": [
+      {
+        "id": "P1",
+        "n": 1,
+        "from": "S1",
+        "to": "S3",
+        "chars": 13,
+        "sentences": 3
+      },
+      {
+        "id": "P2",
+        "n": 2,
+        "from": "S4",
+        "to": "S5",
+        "chars": 26,
+        "sentences": 2
+      },
+      {
+        "id": "P3",
+        "n": 3,
+        "from": "S6",
+        "to": "S8",
+        "chars": 22,
+        "sentences": 3
+      }
+    ],
+    "sentences": [
+      {
+        "id": "S1",
+        "n": 1,
+        "text": "《星海纪事》",
+        "chars": 6
+      },
+      {
+        "id": "S2",
+        "n": 2,
+        "text": "序章",
+        "chars": 2
+      },
+      {
+        "id": "S3",
+        "n": 3,
+        "text": "我在旧城。",
+        "chars": 5
+      },
+      {
+        "id": "S4",
+        "n": 4,
+        "text": "《星海纪事》（第1章） 初航",
+        "chars": 13
+      },
+      {
+        "id": "S5",
+        "n": 5,
+        "text": "林舟见到沈棠，他 朝她走来。",
+        "chars": 13
+      },
+      {
+        "id": "S6",
+        "n": 6,
+        "text": "《星海纪事》（第2章） 归途",
+        "chars": 13
+      },
+      {
+        "id": "S7",
+        "n": 7,
+        "text": "“她来了！”",
+        "chars": 6
+      },
+      {
+        "id": "S8",
+        "n": 8,
+        "text": "他说。",
+        "chars": 3
+      }
+    ]
+  },
+  "offsets": {
+    "encoding": "utf16",
+    "text": "numbering-input",
+    "sentences": [
+      {
+        "id": "S1",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "id": "S2",
+        "start": 13,
+        "end": 15
+      },
+      {
+        "id": "S3",
+        "start": 21,
+        "end": 26
+      },
+      {
+        "id": "S4",
+        "start": 28,
+        "end": 42
+      },
+      {
+        "id": "S5",
+        "start": 48,
+        "end": 62
+      },
+      {
+        "id": "S6",
+        "start": 64,
+        "end": 78
+      },
+      {
+        "id": "S7",
+        "start": 84,
+        "end": 90
+      },
+      {
+        "id": "S8",
+        "start": 90,
+        "end": 93
+      }
+    ]
+  },
+  "book": {
+    "format": "novel-corpus",
+    "schema": "corpus-kit/v2",
+    "title": "星海纪事",
+    "numbering": {
+      "chapter": "C",
+      "paragraph": "P",
+      "sentence": "S",
+      "order": "bottom-up"
+    },
+    "warnings": [
+      "过短章节 1 个（<3 句）"
+    ],
+    "chapterCount": 2,
+    "paragraphCount": 2,
+    "sentenceCount": 5,
+    "chapters": [
+      {
+        "id": "C1",
+        "title": "《星海纪事》（第1章） 初航",
+        "from": "S4",
+        "to": "S5",
+        "paragraphs": [
+          {
+            "id": "C1P1",
+            "text": "《星海纪事》（第1章） 初航林舟见到沈棠，他 朝她走来。",
+            "sentences": [
+              {
+                "id": "C1P1S1",
+                "text": "《星海纪事》（第1章） 初航",
+                "sid": "S4",
+                "sentenceNo": 1,
+                "mentions": []
+              },
+              {
+                "id": "C1P1S2",
+                "text": "林舟见到沈棠，他 朝她走来。",
+                "sid": "S5",
+                "sentenceNo": 2,
+                "mentions": [
+                  "M000001",
+                  "M000002"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "title": "《星海纪事》（第2章） 归途",
+        "from": "S6",
+        "to": "S8",
+        "paragraphs": [
+          {
+            "id": "C2P1",
+            "text": "《星海纪事》（第2章） 归途“她来了！”他说。",
+            "sentences": [
+              {
+                "id": "C2P1S1",
+                "text": "《星海纪事》（第2章） 归途",
+                "sid": "S6",
+                "sentenceNo": 3,
+                "mentions": []
+              },
+              {
+                "id": "C2P1S2",
+                "text": "“她来了！”",
+                "sid": "S7",
+                "sentenceNo": 4,
+                "mentions": [
+                  "M000003"
+                ]
+              },
+              {
+                "id": "C2P1S3",
+                "text": "他说。",
+                "sid": "S8",
+                "sentenceNo": 5,
+                "mentions": [
+                  "M000004"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "frontMatter": [
+      {
+        "id": "S1",
+        "n": 1,
+        "text": "《星海纪事》",
+        "chars": 6
+      },
+      {
+        "id": "S2",
+        "n": 2,
+        "text": "序章",
+        "chars": 2
+      },
+      {
+        "id": "S3",
+        "n": 3,
+        "text": "我在旧城。",
+        "chars": 5
+      }
+    ],
+    "mentionCount": 4
+  },
+  "pronouns": {
+    "total": 4,
+    "mentions": [
+      {
+        "id": "M000001",
+        "sentence": 2,
+        "sentenceId": "C1P1S2",
+        "chapterId": "C1",
+        "text": "他",
+        "category": "第三人称男",
+        "offset": 7
+      },
+      {
+        "id": "M000002",
+        "sentence": 2,
+        "sentenceId": "C1P1S2",
+        "chapterId": "C1",
+        "text": "她",
+        "category": "第三人称女",
+        "offset": 10
+      },
+      {
+        "id": "M000003",
+        "sentence": 4,
+        "sentenceId": "C2P1S2",
+        "chapterId": "C2",
+        "text": "她",
+        "category": "第三人称女",
+        "offset": 1
+      },
+      {
+        "id": "M000004",
+        "sentence": 5,
+        "sentenceId": "C2P1S3",
+        "chapterId": "C2",
+        "text": "他",
+        "category": "第三人称男",
+        "offset": 0
+      }
+    ]
+  },
+  "scenes": {
+    "generatedAt": "2026-11-23T01:50:27.465Z",
+    "source": "book.json",
+    "strategy": "semantic-rolling",
+    "batchChars": 5000,
+    "minSceneSentences": 20,
+    "sourceHash": "d4eb41dc661880768917f7d08afe8e9698f00554416fcaeae58faa3aca7649b1",
+    "model": "",
+    "templateHash": "cdeba0dc3a1b4fb7feb1b8e5a981e668e26ae60317f1a462382407a116963b2f",
+    "totals": {
+      "chapters": 2,
+      "scenes": 1,
+      "sentences": 5,
+      "chars": 51,
+      "avgSentences": 5,
+      "avgChars": 51,
+      "modelChapters": 2,
+      "ruleChapters": 0
+    },
+    "scenes": [
+      {
+        "chapterId": "C1",
+        "endChapterId": "C2",
+        "chapterIds": [
+          "C1",
+          "C2"
+        ],
+        "chapterTitles": [
+          "《星海纪事》（第1章） 初航",
+          "《星海纪事》（第2章） 归途"
+        ],
+        "chapterTitle": "《星海纪事》（第1章） 初航 ～ 《星海纪事》（第2章） 归途",
+        "from": "S4",
+        "to": "S8",
+        "sentences": 5,
+        "chars": 51,
+        "source": "rule",
+        "order": 1,
+        "sceneId": "SC001"
+      }
+    ],
+    "warnings": [
+      "全文只有 5 句，保留为一场"
+    ]
+  },
+  "characters": {
+    "generatedAt": "2026-11-23T01:50:27.481Z",
+    "method": "正文分块 + 模型识别人物",
+    "chunks": 1,
+    "totals": {
+      "characters": 2
+    },
+    "sourceHash": "d4eb41dc661880768917f7d08afe8e9698f00554416fcaeae58faa3aca7649b1",
+    "model": "fixture-analyzer",
+    "templateHash": "a0ff17ac70b928cfdbceececb0d9c3efd9596c5e71c30df8968b41d444d7e328",
+    "characters": [
+      {
+        "id": "CH01",
+        "name": "林舟",
+        "aliases": [],
+        "firstSeen": null,
+        "evidence": [
+          {
+            "surface": "林舟",
+            "sentence": 5,
+            "chapterId": "C1",
+            "start": 0,
+            "end": 2,
+            "text": "林舟见到沈棠，他 朝她走来。"
+          }
+        ]
+      },
+      {
+        "id": "CH02",
+        "name": "沈棠",
+        "aliases": [],
+        "firstSeen": null,
+        "evidence": [
+          {
+            "surface": "沈棠",
+            "sentence": 5,
+            "chapterId": "C1",
+            "start": 4,
+            "end": 6,
+            "text": "林舟见到沈棠，他 朝她走来。"
+          }
+        ]
+      }
+    ]
+  },
+  "mentions": {
+    "generatedAt": "2026-11-23T01:50:27.499Z",
+    "method": "词表扫描（无模型）",
+    "sourceHash": "d4eb41dc661880768917f7d08afe8e9698f00554416fcaeae58faa3aca7649b1",
+    "totals": {
+      "mentions": 6,
+      "characters": 2,
+      "pronoun": 4,
+      "kinship": 0,
+      "role": 0,
+      "collective": 0,
+      "name": 2
+    },
+    "mentions": [
+      {
+        "id": "M000001",
+        "surface": "林舟",
+        "cls": "name",
+        "chapterId": "C1",
+        "sentence": 5,
+        "start": 0,
+        "end": 2,
+        "characterId": "CH01",
+        "inDialog": false,
+        "sceneId": "SC001"
+      },
+      {
+        "id": "M000002",
+        "surface": "沈棠",
+        "cls": "name",
+        "chapterId": "C1",
+        "sentence": 5,
+        "start": 4,
+        "end": 6,
+        "characterId": "CH02",
+        "inDialog": false,
+        "sceneId": "SC001"
+      },
+      {
+        "id": "M000003",
+        "surface": "他",
+        "cls": "pronoun",
+        "chapterId": "C1",
+        "sentence": 5,
+        "start": 7,
+        "end": 8,
+        "characterId": "",
+        "inDialog": false,
+        "sceneId": "SC001"
+      },
+      {
+        "id": "M000004",
+        "surface": "她",
+        "cls": "pronoun",
+        "chapterId": "C1",
+        "sentence": 5,
+        "start": 10,
+        "end": 11,
+        "characterId": "",
+        "inDialog": false,
+        "sceneId": "SC001"
+      },
+      {
+        "id": "M000005",
+        "surface": "她",
+        "cls": "pronoun",
+        "chapterId": "C2",
+        "sentence": 7,
+        "start": 1,
+        "end": 2,
+        "characterId": "",
+        "inDialog": true,
+        "sceneId": "SC001"
+      },
+      {
+        "id": "M000006",
+        "surface": "他",
+        "cls": "pronoun",
+        "chapterId": "C2",
+        "sentence": 8,
+        "start": 0,
+        "end": 1,
+        "characterId": "",
+        "inDialog": false,
+        "sceneId": "SC001"
+      }
+    ]
+  },
+  "relations": {
+    "generatedAt": "2026-11-23T01:50:27.486Z",
+    "method": "同句共现 + 模型判定",
+    "totals": {
+      "relations": 0,
+      "chapters": 2
+    },
+    "relations": []
+  }
+}

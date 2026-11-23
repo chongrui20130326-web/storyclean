@@ -1,0 +1,12 @@
+/data/
+/node_modules/
+/.handoff/
+/reference-source/
+/development-handoff.json
+/reference-source-manifest.json
+/实施设计.md
+/原版功能移植.md
+.env
+.env.*
+*.tmp
+

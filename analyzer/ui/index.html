@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小说清洗软件</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">小说清洗软件</div>
+    <select id="book" class="book-select" aria-label="选择书籍"></select>
+    <span id="model-status" class="ch-meta" role="status"></span>
+    <span class="clean-spacer"></span>
+    <button id="one-click" class="primary" type="button">一键处理并导出</button>
+    <button id="book-import" class="ghost" type="button">导入工程</button>
+    <button id="book-export" class="ghost" type="button">导出工程</button>
+    <button id="open-settings" class="ghost" type="button">配置 LocalAI 模型</button>
+    <input id="import-project" type="file" accept=".json,application/json" hidden />
+  </header>
+  <nav class="viewtabs" aria-label="小说清洗步骤">
+    <button class="viewtab active" type="button" data-view="clean" aria-controls="cleanPage" aria-current="step">1. 小说清洗</button>
+    <button class="viewtab" type="button" data-view="number" aria-controls="numberPage">2. 内容编号</button>
+    <button class="viewtab" type="button" data-view="scenesview" aria-controls="scenesViewPage">3. 场景切分</button>
+    <button class="viewtab" type="button" data-view="characters" aria-controls="charactersPage">4. 生成角色</button>
+    <button class="viewtab" type="button" data-view="files" aria-controls="filesPage">5. 文件查看</button>
+  </nav>
+  <main id="workspace">
+    <div id="workspace-status" role="status" class="clean-status" hidden></div>
+    <input id="cleanFileInput" type="file" accept=".txt,.md,text/plain,text/markdown" hidden />
+    <input id="numberFileInput" type="file" accept=".txt,.md,text/plain,text/markdown" hidden />
+  <section id="cleanPage" class="clean-page" hidden>
+    <div class="clean-head">
+      <span class="clean-title">小说清洗</span>
+      <button id="cleanPick" class="ghost" type="button">选择小说文件</button>
+      <span id="cleanFileName" class="clean-file">未选择</span>
+      <label class="clean-book">书名 <input id="cleanBookName" type="text" placeholder="用于统一成《书名》（第N章）" /></label>
+      <label class="clean-ai" title="书名和章节始终使用模型识别；勾选后额外复核正文合并与删除"><input id="cleanAi" type="checkbox" /> 正文模型复核</label>
+      <span class="ch-meta">书名、目录自动由模型识别</span>
+      <span class="clean-spacer"></span>
+      <button id="cleanRun" class="primary" type="button" disabled>开始清洗</button>
+      <button id="cleanNumber" class="primary" type="button" disabled>保存并编号</button>
+    </div>
+
+    <div id="cleanStatus" class="clean-status" role="status">选择小说文件后开始清洗</div>
+
+    <div class="clean-split">
+      <div class="clean-pane">
+        <div class="clean-pane-title">清洗结果</div>
+        <div class="clean-three">
+          <div class="clean-block"><div class="clean-block-title">书名</div><div id="cleanBookNameOut" class="clean-block-body">—</div></div>
+          <div class="clean-block"><div class="clean-block-title">目录 <span id="cleanTocCount" class="clean-count"></span></div><div id="cleanTocOut" class="clean-block-body clean-toc">—</div></div>
+          <div class="clean-block clean-block-grow"><div class="clean-block-title">正文 <span id="cleanBodyCount" class="clean-count"></span></div><pre id="cleanBodyOut" class="clean-block-body clean-pre">（尚未清洗）</pre></div>
+        </div>
+      </div>
+      <div class="clean-pane clean-side">
+        <div class="clean-pane-title">检查报告</div>
+        <div id="cleanStats" class="clean-stats">—</div>
+        <div id="cleanIssues" class="clean-issues"></div>
+      </div>
+    </div>
+  </section>
+  <section id="numberPage" class="number-page" hidden>
+    <div class="number-head">
+      <span class="number-title">小说内容编号</span>
+      <button id="numberPick" class="ghost" type="button">选择小说文件</button>
+      <span id="numberFile" class="number-file">未选择</span>
+      <span class="number-spacer"></span>
+      <select id="numberBookSel" class="number-booksel" aria-label="编号书籍"></select>
+      <button id="numberOpenBook" class="ghost" type="button">打开书籍</button>
+      <button id="numberRun" class="primary" type="button" disabled>开始编号</button>
+      <button id="numberImport" class="ghost" type="button" disabled>更新书籍</button>
+    </div>
+
+    <div id="numberLog" class="number-log" role="status"></div>
+
+    <div class="number-split">
+      <aside id="numberTree" class="number-tree"><div class="number-empty">编号完成后，这里显示章节 / 段落 / 句子结构</div></aside>
+      <div id="numberContent" class="number-content"><div class="number-empty">右侧将显示带编号的正文</div></div>
+    </div>
+  </section>
+  <section id="scenesViewPage" class="scenes-view-page" hidden>
+    <div class="sv-head">
+      <span class="sv-title">场景切分</span>
+      <span class="clean-spacer"></span>
+      <select id="svBookSel" class="number-booksel" aria-label="场景书籍"></select>
+      <button id="svImport" class="primary" type="button" disabled>开始切分</button>
+      <button id="svStop" class="ghost" type="button" hidden>停止切分</button>
+      <button id="svReload" class="ghost" type="button">刷新</button>
+    </div>
+    <div class="sv-summary" role="status">
+      <strong id="svCompletion" class="sv-completion" data-state="loading">正在读取状态</strong>
+      <span id="svMeta" class="sv-meta"></span>
+      <div id="svBar" class="ch-bar" role="progressbar" aria-label="场景切分进度" aria-valuenow="0"><i></i></div>
+    </div>
+    <div id="svError" class="sv-error" role="alert" hidden>
+      <strong>场景切分失败</strong> <span id="svErrorReason"></span>
+    </div>
+    <div class="sv-split">
+      <aside id="svList" class="sv-list"></aside>
+      <div id="svDetail" class="sv-detail"><div class="number-empty">选择一个场景查看句子范围与正文</div></div>
+    </div>
+  </section>
+  <section id="charactersPage" class="characters-page" hidden>
+    <div class="ch-head">
+      <span class="ch-title">生成角色</span>
+      <select id="chBookSel" class="number-booksel" aria-label="角色书籍"></select>
+      <button id="chTable" class="ghost" type="button">按场景生成真名表</button>
+      <button id="chReview" class="ghost" type="button" hidden>复核待确认身份</button>
+      <button id="chRestart" class="ghost" type="button" hidden>重新逐场生成</button>
+      <button id="chMentionsBtn" class="ghost" type="button" aria-describedby="chMentionStatus" disabled>生成场景内人称</button>
+      <button id="chMap" class="primary" type="button" aria-describedby="chMapLog" disabled>开始人称映射</button>
+      <button id="chMapStop" class="ghost" type="button" hidden>停止映射</button>
+      <button id="chMapRestart" class="ghost" type="button" hidden>重新映射</button>
+      <div id="chBar" class="ch-bar"><i></i></div>
+      <span id="chMeta" class="ch-meta">—</span>
+      <span id="chStepLog" class="ch-steplog" role="status"></span>
+      <span class="clean-spacer"></span>
+      <button id="chReload" class="ghost" type="button">刷新</button>
+    </div>
+    <div id="chMapLog" class="ch-map-log" role="status"></div>
+    <div class="ch-three">
+      <aside class="ch-col ch-col-mentions">
+        <div class="ch-col-title">场景里的人称 <span id="chMentionStatus" class="ch-meta" role="status"></span></div>
+        <div id="chMentions" class="ch-col-body"><div class="number-empty">点中间的场景</div></div>
+        <div id="chMappingEvidence" class="ch-mapping-evidence" hidden></div>
+      </aside>
+      <div class="ch-col ch-col-mid">
+        <div class="ch-col-title">场景</div>
+        <div id="chScenes" class="ch-col-body ch-scene-list"><div class="number-empty">还没有场景</div></div>
+        <div class="ch-col-title">场景内容（已标记人称高亮）</div>
+        <div id="chSceneText" class="ch-scene-text"><div class="number-empty">点上面的场景</div></div>
+      </div>
+      <aside class="ch-col ch-col-roles">
+        <div class="ch-col-title" id="chDraftTitle">本场角色</div>
+        <div id="chDraft" class="ch-col-body ch-draft-list">—</div>
+        <div class="ch-col-title" id="chCharactersTitle">角色真名表</div>
+        <div id="chCharacters" class="ch-col-body ch-char-list">—</div>
+        <div class="ch-col-title">角色关系（真名表附带） <span id="chRelCount" class="clean-count"></span></div>
+        <div id="chRelations" class="ch-col-body ch-rel-list">—</div>
+      </aside>
+    </div>
+  </section>
+  <section id="filesPage" class="files-page" hidden>
+    <header class="files-head">
+      <h2>生成的 JSON 文件</h2>
+      <button id="refreshFiles" class="ghost" type="button">刷新文件</button>
+    </header>
+    <div class="files-split">
+      <aside id="generatedFiles" class="files-list" aria-label="JSON 文件列表"></aside>
+      <div class="file-detail">
+        <p id="filePlaceholder" class="file-empty">点击左侧的 JSON 文件查看。</p>
+        <div id="fileSelected" hidden>
+          <header class="file-header">
+            <div><h3 id="fileTitle"></h3><p id="filePurpose"></p><p id="fileMeta"></p></div>
+            <a id="fileDownload" class="file-download" download>下载 JSON</a>
+          </header>
+          <div class="file-tabs" aria-label="查看方式">
+            <button id="fileReadableTab" class="ghost" type="button" aria-pressed="true">数据解读</button>
+            <button id="fileTreeTab" class="ghost" type="button" aria-pressed="false">数据结构</button>
+            <button id="fileContentTab" class="ghost" type="button" aria-pressed="false">JSON 内容</button>
+          </div>
+          <div id="fileReadable" aria-label="文件数据解读"></div>
+          <ul id="fileTree" class="json-list" aria-label="JSON 数据结构" hidden></ul>
+          <div id="fileRawPanel" hidden>
+            <div class="file-pages">
+              <button id="filePrev" class="ghost" type="button" disabled>上一页</button>
+              <span id="filePages" role="status"></span>
+              <button id="fileNext" class="ghost" type="button" disabled>下一页</button>
+            </div>
+            <pre id="fileContent" tabindex="0" aria-label="JSON 内容"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <form id="settings-form">
+      <h2 id="settings-title">配置 LocalAI 模型</h2>
+      <p id="settings-status" role="status"></p>
+      <label>统一设置各步骤模型 <select id="quick-model"></select></label>
+      <button id="model-reload" class="ghost" type="button">刷新模型列表</button>
+      <fieldset class="settings-models" aria-describedby="stage-model-help">
+        <legend>按功能分别配置</legend>
+        <p id="stage-model-help">可直接输入模型 ID，也可从 LocalAI 列表选择。</p>
+        <datalist id="local-models"></datalist>
+        <label>小说清洗（书名与章节） <input name="structure" list="local-models" maxlength="250" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="留空使用自动配置"></label>
+        <label>正文复核（勾选时使用） <input name="body" list="local-models" maxlength="250" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="留空沿用小说清洗模型"></label>
+        <label>场景切分 <input name="scenes" list="local-models" maxlength="250" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="留空使用自动配置"></label>
+        <label>生成角色真名表 <input name="characters" list="local-models" maxlength="250" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="留空使用自动配置"></label>
+        <label>人称映射 <input name="mentionMappingModel" list="local-models" maxlength="250" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="留空沿用角色真名模型"></label>
+      </fieldset>
+      <div class="settings-embedding">
+        <label>角色与人称检索的向量模型 <input name="roleEmbeddingModel" list="local-models" maxlength="250" autocomplete="off" spellcheck="false" placeholder="留空使用原句检索"></label>
+        <button id="test-role-embedding" class="ghost" type="button">测试向量模型</button>
+        <span id="embedding-status" role="status"></span>
+      </div>
+      <details>
+        <summary>网关与生成参数</summary>
+        <label>LocalAI 地址 <input name="gateway" type="url" required></label>
+        <label>API 密钥 <input name="apiKey" type="password" autocomplete="off" placeholder="留空保留当前密钥"></label>
+        <label>清除密钥 <input name="clearKey" type="checkbox"></label>
+        <label>输出 token 上限 <input name="maxTokens" type="number" min="128" max="16384" required></label>
+        <label>温度 <input name="temperature" type="number" min="0" max="2" step="0.01" required></label>
+        <label>请求超时（秒） <input name="timeout" type="number" min="1" max="600" required></label>
+        <label>关闭额外推理 <input name="disableReasoning" type="checkbox"></label>
+        <button id="save-gateway" class="ghost" type="button">保存网关并刷新模型</button>
+      </details>
+      <details>
+        <summary>清洗、场景与人称映射提示词</summary>
+        <select id="prompt-key" aria-label="选择提示词"></select>
+        <textarea id="prompt-text" rows="9" aria-label="提示词内容"></textarea>
+      </details>
+      <div class="settings-actions">
+        <button id="close-settings" class="ghost" type="button">关闭</button>
+        <button class="primary" type="submit">保存模型设置</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="/app.js"></script>
+  <script type="module" src="/controls.js"></script>
+  <script type="module" src="/file-view.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小说清洗工作台</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="书架">
+      <div class="brand"><span class="brand-icon" aria-hidden="true"><span></span></span><div>书稿工作台<small>小说清洗软件</small></div></div>
+      <label class="button primary import-button" for="import">＋ 导入文件</label>
+      <input id="import" class="file-input" type="file" accept=".txt,.json">
+      <div class="library-heading"><span>本地书架</span><span id="book-count">0 本</span></div>
+      <nav id="library" class="library" aria-label="已导入书籍"></nav>
+      <div class="sidebar-foot"><span class="status-dot"></span>本地工作区</div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div class="breadcrumb"><span>工作区</span><span class="slash">/</span><strong id="breadcrumb">书架</strong></div>
+        <button class="button" id="open-settings" type="button">配置 LocalAI 模型</button>
+      </header>
+      <main>
+        <section class="model-summary" aria-labelledby="configured-models-title">
+          <h2 id="configured-models-title">当前模型</h2>
+          <dl id="configured-models" aria-live="polite">
+            <div><dt>模型配置</dt><dd>正在读取…</dd></div>
+          </dl>
+        </section>
+        <p id="notice" class="notice" role="status" hidden></p>
+        <section id="welcome" class="welcome" hidden>
+          <span class="book-illustration" aria-hidden="true"><span></span><span></span></span>
+          <h1>导入书稿，开始清洗</h1>
+          <p>从 TXT 小说开始，或打开已有的书籍工程 JSON。</p>
+          <label class="button primary" for="import">选择文件</label>
+        </section>
+
+        <div id="book" hidden>
+          <section class="hero">
+            <div class="hero-main">
+              <div><p class="eyebrow">书籍工程</p><h1 id="book-title"></h1><p id="source-meta" class="source-meta"></p></div>
+              <div class="actions">
+                <button class="button primary" id="process" type="button" data-action="process">一键处理并导出</button>
+                <a class="button" id="export">导出当前工程</a>
+              </div>
+            </div>
+            <dl id="metrics" class="metrics"></dl>
+          </section>
+
+          <nav class="steps" id="steps" aria-label="处理流程"></nav>
+          <div class="content-grid">
+            <section class="panel stage-panel" aria-labelledby="stage-title">
+              <header class="panel-header">
+                <div><h2 id="stage-title"></h2><p id="stage-description"></p></div>
+                <div class="actions" id="stage-actions"></div>
+              </header>
+              <div id="stage-editor"></div>
+              <div class="view-toolbar" id="view-toolbar"></div>
+              <div id="view-result" class="view-result" aria-live="polite"></div>
+              <div id="pager" class="pager" hidden></div>
+            </section>
+
+            <aside class="right-rail">
+              <section class="panel job-panel">
+                <header class="panel-header"><div><h2>运行进度</h2><p>最近一次模型任务</p></div></header>
+                <div id="job-panel" class="job-body"></div>
+              </section>
+              <section class="panel info-panel">
+                <header class="panel-header"><div><h2>文件与校验</h2></div></header>
+                <div id="book-info" class="info-body"></div>
+              </section>
+            </aside>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="settings" aria-labelledby="settings-title">
+    <form id="config">
+      <header class="dialog-header"><h2 id="settings-title">配置 LocalAI 模型</h2><button class="button" type="button" data-action="close-settings">关闭</button></header>
+      <div class="dialog-body">
+        <p id="config-notice" class="notice" role="status" hidden></p>
+        <section class="model-quick" aria-labelledby="workflow-model-label">
+          <label for="workflow-model" id="workflow-model-label">一键处理模型</label>
+          <select id="workflow-model" aria-describedby="workflow-model-hint"></select>
+          <p id="workflow-model-hint">用于场景切分和角色真名。</p>
+          <div class="model-tools">
+            <button class="button quiet" type="button" data-action="refresh-models">刷新模型列表</button>
+            <span id="model-count" class="muted" role="status"></span>
+          </div>
+        </section>
+        <details class="settings-details" id="gateway-settings">
+          <summary>LocalAI 网关与生成参数</summary>
+          <div class="form-grid">
+            <label class="wide">LocalAI 地址<input name="gateway" type="url" required></label>
+            <label class="wide">API 密钥<input name="apiKey" type="password" autocomplete="off" placeholder="留空保留当前密钥"></label>
+            <label class="wide checkbox"><input name="clearKey" type="checkbox">清除已保存的密钥</label>
+            <label>输出 token 上限<input name="maxTokens" type="number" min="128" max="16384" step="1" required></label>
+            <label>温度<input name="temperature" type="number" min="0" max="2" step="0.01" required></label>
+            <label>请求超时（秒）<input name="timeout" type="number" min="1" max="600" step="1" required></label>
+            <label class="wide checkbox"><input name="disableReasoning" type="checkbox">关闭额外推理（网关支持时）</label>
+          </div>
+          <button class="button" type="button" data-action="models">保存网关并刷新模型</button>
+        </details>
+        <details class="settings-details" id="advanced-models">
+          <summary>分阶段模型与提示词</summary>
+          <datalist id="models"></datalist>
+          <div id="stage-config"></div>
+        </details>
+      </div>
+      <footer class="dialog-footer"><button class="button primary" type="submit">保存模型设置</button></footer>
+    </form>
+  </dialog>
+</body>
+</html>
+

@@ -1,0 +1,774 @@
+{
+  "format": "novel-cleaning-project",
+  "version": 1,
+  "createdAt": "2026-11-22T18:28:01.093Z",
+  "source": {
+    "file": "sample.txt",
+    "encoding": "UTF-8",
+    "bom": false,
+    "notes": [],
+    "sha256": "e7526b5b153976cdaceb794005545e2d91ffa159053cc5cd1a37c7fef69460ce",
+    "base64": "44CK6Zu+5riv5p2l5L+h44CLCuebruW9lQrnrKzkuIDnq6Ag5aCk5bK4CuesrOS6jOeroCDnga/loZQKCuesrOS4gOeroCDloKTlsrgK44CA44CA5p6X6Iif5o6o5byA5LuT6Zeo44CC5rKI5qOg6K+077ya4oCc5L2g6L+f5Yiw5LqG44CC4oCdCuOAgOOAgOS7lueahOaJi+mHjOaYr+S4gOWwgeS/oeOAggrjgIDjgIDpm6jov5jmsqHmnInlgZzvvIzku5bmiorkv6EK5Lqk57uZ5rKI5qOg44CC5aW56K+75a6M77yM5rKh5pyJ5Ye65aOw44CCCgrnrKzkuoznq6Ag54Gv5aGUCuS4ieWkqeWQju+8jOayiOajoOeLrOiHquadpeWIsOeBr+WhlOOAguWlueWPkeeOsOeql+S4iuacieebkOmcnOOAggrkuLTov5Hpu4TmmI/vvIzmnpfoiJ/pmpTnnYDmoI/mnYbllorvvJrigJzmiJHku6zor6Xlm57ljrvkuobjgILigJ0KCg==",
+    "text": "《雾港来信》\n目录\n第一章 堤岸\n第二章 灯塔\n\n第一章 堤岸\n　　林舟推开仓门。沈棠说：“你迟到了。”\n　　他的手里是一封信。\n　　雨还没有停，他把信\n交给沈棠。她读完，没有出声。\n\n第二章 灯塔\n三天后，沈棠独自来到灯塔。她发现窗上有盐霜。\n临近黄昏，林舟隔着栏杆喊：“我们该回去了。”\n\n"
+  },
+  "clean": {
+    "title": "雾港来信",
+    "edits": {
+      "title": "雾港来信",
+      "titleLine": 1,
+      "headings": [
+        {
+          "line": 6,
+          "title": "第一章 堤岸"
+        },
+        {
+          "line": 12,
+          "title": "第二章 灯塔"
+        }
+      ],
+      "removed": [
+        {
+          "line": 2,
+          "reason": "独立目录标题"
+        },
+        {
+          "line": 3,
+          "reason": "目录中重复出现的章标题"
+        },
+        {
+          "line": 4,
+          "reason": "目录中重复出现的章标题"
+        }
+      ],
+      "merges": [
+        10
+      ]
+    },
+    "chapters": [
+      {
+        "title": "第一章 堤岸",
+        "headingLine": 6,
+        "paragraphs": [
+          {
+            "start": 0,
+            "end": 18,
+            "text": "林舟推开仓门。沈棠说：“你迟到了。”",
+            "pieces": [
+              {
+                "line": 7,
+                "sourceStart": 32,
+                "sourceEnd": 52,
+                "start": 0,
+                "end": 18
+              }
+            ]
+          },
+          {
+            "start": 19,
+            "end": 28,
+            "text": "他的手里是一封信。",
+            "pieces": [
+              {
+                "line": 8,
+                "sourceStart": 53,
+                "sourceEnd": 64,
+                "start": 19,
+                "end": 28
+              }
+            ]
+          },
+          {
+            "start": 29,
+            "end": 52,
+            "text": "雨还没有停，他把信交给沈棠。她读完，没有出声。",
+            "pieces": [
+              {
+                "line": 9,
+                "sourceStart": 65,
+                "sourceEnd": 76,
+                "start": 29,
+                "end": 38
+              },
+              {
+                "line": 10,
+                "sourceStart": 77,
+                "sourceEnd": 91,
+                "start": 38,
+                "end": 52
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "第二章 灯塔",
+        "headingLine": 12,
+        "paragraphs": [
+          {
+            "start": 53,
+            "end": 75,
+            "text": "三天后，沈棠独自来到灯塔。她发现窗上有盐霜。",
+            "pieces": [
+              {
+                "line": 13,
+                "sourceStart": 100,
+                "sourceEnd": 122,
+                "start": 53,
+                "end": 75
+              }
+            ]
+          },
+          {
+            "start": 76,
+            "end": 98,
+            "text": "临近黄昏，林舟隔着栏杆喊：“我们该回去了。”",
+            "pieces": [
+              {
+                "line": 14,
+                "sourceStart": 123,
+                "sourceEnd": 145,
+                "start": 76,
+                "end": 98
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "body": "林舟推开仓门。沈棠说：“你迟到了。”\n他的手里是一封信。\n雨还没有停，他把信交给沈棠。她读完，没有出声。\n三天后，沈棠独自来到灯塔。她发现窗上有盐霜。\n临近黄昏，林舟隔着栏杆喊：“我们该回去了。”",
+    "lineCount": 15,
+    "audit": [
+      {
+        "line": 1,
+        "start": 0,
+        "end": 6,
+        "action": "title",
+        "before": "《雾港来信》",
+        "after": "雾港来信"
+      },
+      {
+        "line": 2,
+        "start": 7,
+        "end": 9,
+        "action": "remove",
+        "before": "目录",
+        "reason": "独立目录标题"
+      },
+      {
+        "line": 3,
+        "start": 10,
+        "end": 16,
+        "action": "remove",
+        "before": "第一章 堤岸",
+        "reason": "目录中重复出现的章标题"
+      },
+      {
+        "line": 4,
+        "start": 17,
+        "end": 23,
+        "action": "remove",
+        "before": "第二章 灯塔",
+        "reason": "目录中重复出现的章标题"
+      },
+      {
+        "line": 6,
+        "start": 25,
+        "end": 31,
+        "action": "heading",
+        "before": "第一章 堤岸",
+        "after": "第一章 堤岸"
+      },
+      {
+        "line": 7,
+        "start": 32,
+        "end": 52,
+        "action": "normalize",
+        "before": "　　林舟推开仓门。沈棠说：“你迟到了。”",
+        "after": "林舟推开仓门。沈棠说：“你迟到了。”"
+      },
+      {
+        "line": 8,
+        "start": 53,
+        "end": 64,
+        "action": "normalize",
+        "before": "　　他的手里是一封信。",
+        "after": "他的手里是一封信。"
+      },
+      {
+        "line": 9,
+        "start": 65,
+        "end": 76,
+        "action": "normalize",
+        "before": "　　雨还没有停，他把信",
+        "after": "雨还没有停，他把信"
+      },
+      {
+        "line": 10,
+        "start": 77,
+        "end": 91,
+        "action": "merge",
+        "intoLine": 9
+      },
+      {
+        "line": 12,
+        "start": 93,
+        "end": 99,
+        "action": "heading",
+        "before": "第二章 灯塔",
+        "after": "第二章 灯塔"
+      }
+    ],
+    "warnings": []
+  },
+  "cleanReviews": [
+    {
+      "line": 10,
+      "kind": "merge",
+      "text": "并入上一正文行",
+      "stage": "body",
+      "provenance": {
+        "model": "fixture-model",
+        "promptVersion": 1,
+        "promptHash": "6d2969b567ece0c3e08d672de659135111a45726ccc8358fe53f639ce18177f8",
+        "at": "2026-11-22T18:28:01.117Z"
+      }
+    }
+  ],
+  "numbered": {
+    "schema": "novel-numbered/v2",
+    "offsetEncoding": "utf16",
+    "chapters": [
+      {
+        "id": "C1",
+        "n": 1,
+        "title": "第一章 堤岸",
+        "headingLine": 6,
+        "paragraphIds": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "from": "S1",
+        "to": "S5"
+      },
+      {
+        "id": "C2",
+        "n": 2,
+        "title": "第二章 灯塔",
+        "headingLine": 12,
+        "paragraphIds": [
+          "P4",
+          "P5"
+        ],
+        "from": "S6",
+        "to": "S8"
+      }
+    ],
+    "paragraphs": [
+      {
+        "id": "P1",
+        "n": 1,
+        "chapterId": "C1",
+        "text": "林舟推开仓门。沈棠说：“你迟到了。”",
+        "start": 0,
+        "end": 18,
+        "sourceLines": [
+          7
+        ],
+        "from": "S1",
+        "to": "S2"
+      },
+      {
+        "id": "P2",
+        "n": 2,
+        "chapterId": "C1",
+        "text": "他的手里是一封信。",
+        "start": 19,
+        "end": 28,
+        "sourceLines": [
+          8
+        ],
+        "from": "S3",
+        "to": "S3"
+      },
+      {
+        "id": "P3",
+        "n": 3,
+        "chapterId": "C1",
+        "text": "雨还没有停，他把信交给沈棠。她读完，没有出声。",
+        "start": 29,
+        "end": 52,
+        "sourceLines": [
+          9,
+          10
+        ],
+        "from": "S4",
+        "to": "S5"
+      },
+      {
+        "id": "P4",
+        "n": 4,
+        "chapterId": "C2",
+        "text": "三天后，沈棠独自来到灯塔。她发现窗上有盐霜。",
+        "start": 53,
+        "end": 75,
+        "sourceLines": [
+          13
+        ],
+        "from": "S6",
+        "to": "S7"
+      },
+      {
+        "id": "P5",
+        "n": 5,
+        "chapterId": "C2",
+        "text": "临近黄昏，林舟隔着栏杆喊：“我们该回去了。”",
+        "start": 76,
+        "end": 98,
+        "sourceLines": [
+          14
+        ],
+        "from": "S8",
+        "to": "S8"
+      }
+    ],
+    "sentences": [
+      {
+        "id": "S1",
+        "n": 1,
+        "chapterId": "C1",
+        "chapterTitle": "第一章 堤岸",
+        "paragraphId": "P1",
+        "text": "林舟推开仓门。",
+        "start": 0,
+        "end": 7,
+        "source": [
+          {
+            "line": 7,
+            "start": 32,
+            "end": 52
+          }
+        ]
+      },
+      {
+        "id": "S2",
+        "n": 2,
+        "chapterId": "C1",
+        "chapterTitle": "第一章 堤岸",
+        "paragraphId": "P1",
+        "text": "沈棠说：“你迟到了。”",
+        "start": 7,
+        "end": 18,
+        "source": [
+          {
+            "line": 7,
+            "start": 32,
+            "end": 52
+          }
+        ]
+      },
+      {
+        "id": "S3",
+        "n": 3,
+        "chapterId": "C1",
+        "chapterTitle": "第一章 堤岸",
+        "paragraphId": "P2",
+        "text": "他的手里是一封信。",
+        "start": 19,
+        "end": 28,
+        "source": [
+          {
+            "line": 8,
+            "start": 53,
+            "end": 64
+          }
+        ]
+      },
+      {
+        "id": "S4",
+        "n": 4,
+        "chapterId": "C1",
+        "chapterTitle": "第一章 堤岸",
+        "paragraphId": "P3",
+        "text": "雨还没有停，他把信交给沈棠。",
+        "start": 29,
+        "end": 43,
+        "source": [
+          {
+            "line": 9,
+            "start": 65,
+            "end": 76
+          },
+          {
+            "line": 10,
+            "start": 77,
+            "end": 91
+          }
+        ]
+      },
+      {
+        "id": "S5",
+        "n": 5,
+        "chapterId": "C1",
+        "chapterTitle": "第一章 堤岸",
+        "paragraphId": "P3",
+        "text": "她读完，没有出声。",
+        "start": 43,
+        "end": 52,
+        "source": [
+          {
+            "line": 10,
+            "start": 77,
+            "end": 91
+          }
+        ]
+      },
+      {
+        "id": "S6",
+        "n": 6,
+        "chapterId": "C2",
+        "chapterTitle": "第二章 灯塔",
+        "paragraphId": "P4",
+        "text": "三天后，沈棠独自来到灯塔。",
+        "start": 53,
+        "end": 66,
+        "source": [
+          {
+            "line": 13,
+            "start": 100,
+            "end": 122
+          }
+        ]
+      },
+      {
+        "id": "S7",
+        "n": 7,
+        "chapterId": "C2",
+        "chapterTitle": "第二章 灯塔",
+        "paragraphId": "P4",
+        "text": "她发现窗上有盐霜。",
+        "start": 66,
+        "end": 75,
+        "source": [
+          {
+            "line": 13,
+            "start": 100,
+            "end": 122
+          }
+        ]
+      },
+      {
+        "id": "S8",
+        "n": 8,
+        "chapterId": "C2",
+        "chapterTitle": "第二章 灯塔",
+        "paragraphId": "P5",
+        "text": "临近黄昏，林舟隔着栏杆喊：“我们该回去了。”",
+        "start": 76,
+        "end": 98,
+        "source": [
+          {
+            "line": 14,
+            "start": 123,
+            "end": 145
+          }
+        ]
+      }
+    ],
+    "coverage": {
+      "sourceChars": 94,
+      "sentenceChars": 94,
+      "ratio": 1
+    }
+  },
+  "scenes": {
+    "basis": "ec3715d49318592b567a4df3d4f27197660ecfb163cda13ffa7bc09cd1b76121",
+    "provenance": {
+      "model": "fixture-model",
+      "promptVersion": 1,
+      "promptHash": "4eb1fb438707fb04ac0a779deaa315342f1094051536efbfcfca429fa3a24812",
+      "at": "2026-11-22T18:28:01.142Z"
+    },
+    "rows": [
+      {
+        "chapterId": "C1",
+        "endChapterId": "C1",
+        "chapterIds": [
+          "C1"
+        ],
+        "chapterTitles": [
+          "第一章 堤岸"
+        ],
+        "chapterTitle": "第一章 堤岸",
+        "from": "S1",
+        "to": "S5",
+        "sentences": 5,
+        "chars": 50,
+        "source": "sentence-boundaries",
+        "order": 1,
+        "sceneId": "SC001",
+        "boundary": "model"
+      },
+      {
+        "chapterId": "C2",
+        "endChapterId": "C2",
+        "chapterIds": [
+          "C2"
+        ],
+        "chapterTitles": [
+          "第二章 灯塔"
+        ],
+        "chapterTitle": "第二章 灯塔",
+        "from": "S6",
+        "to": "S8",
+        "sentences": 3,
+        "chars": 44,
+        "source": "sentence-boundaries",
+        "order": 2,
+        "sceneId": "SC002",
+        "boundary": "end"
+      }
+    ],
+    "cuts": [
+      5
+    ]
+  },
+  "characters": {
+    "basis": "ec3715d49318592b567a4df3d4f27197660ecfb163cda13ffa7bc09cd1b76121",
+    "provenance": {
+      "model": "fixture-model",
+      "promptVersion": 1,
+      "promptHash": "8b7946587aa2c1ac223d2bbc494d4a6c4db66fc9de55b39e44e0b7d456b1967a",
+      "at": "2026-11-22T18:28:01.181Z"
+    },
+    "rows": [
+      {
+        "id": "CH01",
+        "name": "林舟",
+        "aliases": [],
+        "firstSeen": "S1",
+        "evidence": [
+          {
+            "sentenceId": "S1",
+            "start": 0,
+            "end": 2,
+            "surface": "林舟"
+          },
+          {
+            "sentenceId": "S8",
+            "start": 5,
+            "end": 7,
+            "surface": "林舟"
+          }
+        ]
+      },
+      {
+        "id": "CH02",
+        "name": "沈棠",
+        "aliases": [],
+        "firstSeen": "S2",
+        "evidence": [
+          {
+            "sentenceId": "S2",
+            "start": 0,
+            "end": 2,
+            "surface": "沈棠"
+          },
+          {
+            "sentenceId": "S4",
+            "start": 11,
+            "end": 13,
+            "surface": "沈棠"
+          },
+          {
+            "sentenceId": "S6",
+            "start": 4,
+            "end": 6,
+            "surface": "沈棠"
+          }
+        ]
+      }
+    ]
+  },
+  "mentions": {
+    "basis": "ec3715d49318592b567a4df3d4f27197660ecfb163cda13ffa7bc09cd1b76121",
+    "method": "lexicon/v1",
+    "rows": [
+      {
+        "id": "M000001",
+        "surface": "林舟",
+        "cls": "name",
+        "chapterId": "C1",
+        "sceneId": "SC001",
+        "sentence": 1,
+        "sentenceId": "S1",
+        "start": 0,
+        "end": 2,
+        "inDialog": false,
+        "characterId": "CH01",
+        "candidateIds": [
+          "CH01"
+        ],
+        "source": "literal-name"
+      },
+      {
+        "id": "M000002",
+        "surface": "沈棠",
+        "cls": "name",
+        "chapterId": "C1",
+        "sceneId": "SC001",
+        "sentence": 2,
+        "sentenceId": "S2",
+        "start": 0,
+        "end": 2,
+        "inDialog": false,
+        "characterId": "CH02",
+        "candidateIds": [
+          "CH02"
+        ],
+        "source": "literal-name"
+      },
+      {
+        "id": "M000003",
+        "surface": "你",
+        "cls": "pronoun",
+        "chapterId": "C1",
+        "sceneId": "SC001",
+        "sentence": 2,
+        "sentenceId": "S2",
+        "start": 5,
+        "end": 6,
+        "inDialog": true,
+        "characterId": "",
+        "candidateIds": [],
+        "source": "lexicon"
+      },
+      {
+        "id": "M000004",
+        "surface": "他",
+        "cls": "pronoun",
+        "chapterId": "C1",
+        "sceneId": "SC001",
+        "sentence": 3,
+        "sentenceId": "S3",
+        "start": 0,
+        "end": 1,
+        "inDialog": false,
+        "characterId": "",
+        "candidateIds": [],
+        "source": "lexicon"
+      },
+      {
+        "id": "M000005",
+        "surface": "他",
+        "cls": "pronoun",
+        "chapterId": "C1",
+        "sceneId": "SC001",
+        "sentence": 4,
+        "sentenceId": "S4",
+        "start": 6,
+        "end": 7,
+        "inDialog": false,
+        "characterId": "",
+        "candidateIds": [],
+        "source": "lexicon"
+      },
+      {
+        "id": "M000006",
+        "surface": "沈棠",
+        "cls": "name",
+        "chapterId": "C1",
+        "sceneId": "SC001",
+        "sentence": 4,
+        "sentenceId": "S4",
+        "start": 11,
+        "end": 13,
+        "inDialog": false,
+        "characterId": "CH02",
+        "candidateIds": [
+          "CH02"
+        ],
+        "source": "literal-name"
+      },
+      {
+        "id": "M000007",
+        "surface": "她",
+        "cls": "pronoun",
+        "chapterId": "C1",
+        "sceneId": "SC001",
+        "sentence": 5,
+        "sentenceId": "S5",
+        "start": 0,
+        "end": 1,
+        "inDialog": false,
+        "characterId": "",
+        "candidateIds": [],
+        "source": "lexicon"
+      },
+      {
+        "id": "M000008",
+        "surface": "沈棠",
+        "cls": "name",
+        "chapterId": "C2",
+        "sceneId": "SC002",
+        "sentence": 6,
+        "sentenceId": "S6",
+        "start": 4,
+        "end": 6,
+        "inDialog": false,
+        "characterId": "CH02",
+        "candidateIds": [
+          "CH02"
+        ],
+        "source": "literal-name"
+      },
+      {
+        "id": "M000009",
+        "surface": "她",
+        "cls": "pronoun",
+        "chapterId": "C2",
+        "sceneId": "SC002",
+        "sentence": 7,
+        "sentenceId": "S7",
+        "start": 0,
+        "end": 1,
+        "inDialog": false,
+        "characterId": "",
+        "candidateIds": [],
+        "source": "lexicon"
+      },
+      {
+        "id": "M000010",
+        "surface": "林舟",
+        "cls": "name",
+        "chapterId": "C2",
+        "sceneId": "SC002",
+        "sentence": 8,
+        "sentenceId": "S8",
+        "start": 5,
+        "end": 7,
+        "inDialog": false,
+        "characterId": "CH01",
+        "candidateIds": [
+          "CH01"
+        ],
+        "source": "literal-name"
+      },
+      {
+        "id": "M000011",
+        "surface": "我们",
+        "cls": "collective",
+        "chapterId": "C2",
+        "sceneId": "SC002",
+        "sentence": 8,
+        "sentenceId": "S8",
+        "start": 14,
+        "end": 16,
+        "inDialog": true,
+        "characterId": "",
+        "candidateIds": [],
+        "source": "lexicon"
+      }
+    ]
+  }
+}
