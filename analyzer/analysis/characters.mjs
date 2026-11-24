@@ -202,7 +202,7 @@ function evidenceFor(rows, words) {
 const windowLimit = message => Object.assign(Error(message), { code: 'CHARACTER_WINDOW_LIMIT' });
 
 export async function askModel(chat, options, validate, splitOnCapacity, attempts = 3) {
-  const { prompt, signal } = options;
+  const { prompt, signal, splitOnTimeout = true } = options;
   let failure;
   for (let attempt = 0; attempt < attempts; attempt += 1) {
     signal?.throwIfAborted();
@@ -212,12 +212,12 @@ export async function askModel(chat, options, validate, splitOnCapacity, attempt
       response = await chat({ ...options, prompt: request });
     } catch (error) {
       signal?.throwIfAborted();
-      if (splitOnCapacity && isTimeout(error.message)) throw windowLimit(error.message);
+      if (splitOnCapacity && splitOnTimeout && isTimeout(error.message)) throw windowLimit(error.message);
       throw error;
     }
     signal?.throwIfAborted();
     const raw = String(response?.content ?? '').trim();
-    if (splitOnCapacity && (response?.truncated || isTimeout(response?.error))) {
+    if (splitOnCapacity && (response?.truncated || (splitOnTimeout && isTimeout(response?.error)))) {
       throw windowLimit(response.error || '模型输出不完整');
     }
     if (response?.ok === false && !raw && !response.truncated) throw Error(response.error || '模型调用失败');

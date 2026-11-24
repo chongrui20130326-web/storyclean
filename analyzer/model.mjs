@@ -49,9 +49,13 @@ export function createModelConsole({ config, model, signal, logFile, safeLog }) 
             signal: signal ? AbortSignal.any([signal, timeout]) : timeout,
           });
           if (!response.ok) {
+            const shouldRetry = response.headers.get('x-should-retry')?.trim().toLowerCase() !== 'false';
+            const busy = response.status === 429 && !shouldRetry && isLocal(config);
             await response.body?.cancel();
-            const error = Error('模型网关返回 HTTP ' + response.status);
+            const error = Error(busy ? 'LocalAI 正在处理其他请求（HTTP 429）。请等待 LocalAI 空闲后继续。'
+              : '模型网关返回 HTTP ' + response.status);
             error.http = response.status;
+            error.shouldRetry = shouldRetry;
             throw error;
           }
           const result = await response.json();
@@ -66,9 +70,11 @@ export function createModelConsole({ config, model, signal, logFile, safeLog }) 
             : { ok, content, error, model: selected, usage, finish, truncated: finish === 'length' };
         } catch (error) {
           signal?.throwIfAborted();
-          failure = error.http ? error.message : error.name === 'TimeoutError' ? '模型请求超时' : '无法读取模型网关响应';
+          failure = error.http ? error.message : error.name === 'TimeoutError'
+            ? '模型请求超时（' + config.timeoutMs / 1000 + ' 秒）' + (isLocal(config) ? '。请等待 LocalAI 空闲后继续。' : '')
+            : '无法读取模型网关响应';
           log({ source, runId, model: selected, ok: false, error: failure, ms: Date.now() - started });
-          if (![429, 503].includes(error.http)) break;
+          if (!error.shouldRetry || ![429, 503].includes(error.http)) break;
           if (i + 1 < tries) await sleep(800, undefined, { signal });
         }
       }

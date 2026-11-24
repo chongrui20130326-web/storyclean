@@ -33,10 +33,13 @@ test('按原文逐处映射，保留断点，跨场补证，拒绝不存在的�
   const ok = rows => ({ ok: true, content: JSON.stringify({ mappings: rows }) });
   const answer = (mentionId, characterIds, sentence, quote) => ({ mentionId, status: characterIds.length ? 'mapped' : 'nonperson', characterIds, evidence: [{ sentence, quote }] });
   const progress = [];
+  let firstRunCalls = 0;
   await assert.rejects(runMentionMappings({ work, layers, model: 'fixture', onProgress: row => progress.push(row), chat: async ({ prompt }) => {
+    firstRunCalls += 1;
     if (!prompt.includes(me)) throw Error('模型请求超时');
     return ok([answer(me, ['CH01'], 1, '林舟说：“我来。”'), answer(he, ['CH09'], 3, '后来他走了。')]);
   } }), /超时/);
+  assert.equal(firstRunCalls, 2);
   assert.equal(readMentionMapping(work, layers).document.scenes.length, 1);
   assert.equal(progress[0].etaSeconds, null);
   const estimate = progress.find(row => row.phase === 'local' && row.work?.done === 1 && row.done === 0);

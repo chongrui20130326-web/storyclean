@@ -3,9 +3,24 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { createServer } from 'node:http';
 
 const loadStages = () => import('../analyzer/analysis/index.mjs');
 const ok = value => ({ ok: true, content: JSON.stringify(value) });
+
+test('LocalAI 返回不可重试的 429 时，只发一次请求并提示等待网关空闲', async t => {
+  const { createModelConsole } = await import('../analyzer/model.mjs');
+  let requests = 0;
+  const gateway = createServer((req, res) => {
+    requests += 1;
+    res.writeHead(429, { 'Content-Type': 'application/json', 'x-should-retry': 'false' }).end('{"error":{"code":"model_busy"}}');
+  });
+  await new Promise(resolve => gateway.listen(0, '127.0.0.1', resolve));
+  t.after(() => new Promise(resolve => gateway.close(resolve)));
+  const { chat } = createModelConsole({ model: 'fixture', config: { gateway: 'http://127.0.0.1:' + gateway.address().port + '/v1', timeoutMs: 5000 } });
+  await assert.rejects(chat({ prompt: '测试', maxAttempts: 2 }), /LocalAI.*HTTP 429.*空闲/);
+  assert.equal(requests, 1);
+});
 
 function bookFixture(t, paragraphs) {
   const work = fs.mkdtempSync(path.join(os.tmpdir(), 'clean-analyzer-analysis-'));
